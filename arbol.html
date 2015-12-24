@@ -1,0 +1,75 @@
+ <!--arbol de navidad !-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>index </title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="main.css" />
+    
+
+</head>
+    <body>  
+
+
+    <div id="arbol" class=".animated.infinite">  
+    	<script>
+
+              var altura = 22;
+
+              for(i=0; i<altura ;i+=1) { 
+                var linea = '<div class="linea '+ i +'">'
+                document.write (linea);
+
+                  for(k=0;k<i;k+=1){
+                  var hoja = '<div class="hoja '+ k +'"></div>'
+                  document.write(hoja);
+                  }
+                document.write('</div>');
+                } 
+
+      function runanim() {
+                 
+         
+          var lineas = document.getElementsByClassName('linea');
+                  
+          var y = Math.floor(Math.random()*altura);
+                    
+          
+          var hojas = lineas[y].getElementsByClassName('hoja');
+          var x = Math.floor(Math.random()*altura);
+          
+          hojas[x] .className += " on";
+          
+              /* setTimeout() es una función que ejecuta una acción después de 200ms en este caso, la acción a ejecutar es apagar el led */
+              
+              setTimeout(function () {
+                /* esta instrucción apaga el led colocando sólo la clase led y eliminando la clase on */
+                hojas[x].className = "hoja";
+              }, 200)
+              
+              /* Otra ves el setTimeout() pero esta ves hace que la función runanim() se ejecute nuevamente dentro de 600ms */
+              setTimeout(runanim, 600);
+        }
+
+        /* Esto inicia la ejecución de la función runanim() */
+        runanim();
+
+
+      </script>
+        <div class="linea"><div class="tronco"></div></div>
+    </div>  
+    <br>
+      
+<div id="arbol"> 
+   
+      <div class="linea"><div class="hoja"></div></div>
+      <div class="linea"><div class="hoja"></div><div class="esfera"></div></div>
+      <div class="linea"><div class="hoja"></div><div class="hoja"></div><div class="hoja"></div></div>
+      <div class="linea"><div class="hoja"></div><div class="hoja"></div><div class="hoja"></div><div class="hoja"></div></div>
+      <div class="linea"><div class="hoja"></div><div class="hoja"></div><div class="hoja"></div><div class="hoja"></div><div class="hoja"></div></div>
+      
+      <div class="linea"><div class="tronco"></div></div>
+        
+     </div> 
+	</body>
+</html>
